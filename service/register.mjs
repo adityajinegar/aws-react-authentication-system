@@ -1,9 +1,9 @@
-const util = require('../utils/util');
-const auth = require('../utils/auth');
+import { buildResponse } from '../utils/util.mjs';
+import { verifyToken } from '../utils/auth.mjs';
 
-function verify(requestBody) {
+export function verify(requestBody) {
   if (!requestBody.user || !requestBody.user.username || !requestBody.token) {
-    return util.buildResponse(401, {
+    return buildResponse(401, {
       verified: false,
       message: 'Incorrect request body',
     });
@@ -11,16 +11,14 @@ function verify(requestBody) {
 
   const user = requestBody.user;
   const token = requestBody.token;
-  const verification = auth.verifyToken(user.username, token);
+  const verification = verifyToken(user.username, token);
   if (!verification.verified) {
-    return util.buildResponse(401, verification);
+    return buildResponse(401, verification);
   }
-  return util.buildResponse(200, {
+  return buildResponse(200, {
     verified: true,
     message: 'Success',
     user: user,
     token: token,
   });
 }
-
-module.exports.verify = verify;

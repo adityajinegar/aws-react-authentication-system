@@ -1,4 +1,4 @@
-function buildResponse(statusCode, body) {
+export function buildResponse(statusCode, body) {
   return {
     statusCode: statusCode,
     headers: {
@@ -8,5 +8,3 @@ function buildResponse(statusCode, body) {
     body: JSON.stringify(body),
   };
 }
-
-module.exports.buildResponse = buildResponse;
