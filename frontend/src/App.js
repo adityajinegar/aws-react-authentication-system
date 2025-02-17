@@ -9,16 +9,16 @@ function App() {
     <div className='App'>
       <BrowserRouter>
         <div className='header'>
-          <NavLink exact activeClassName='active' to='/'>
+          <NavLink className='active' to='/'>
             Home
           </NavLink>
-          <NavLink exact activeClassName='active' to='/register'>
+          <NavLink className='active' to='/register'>
             Register
           </NavLink>
-          <NavLink exact activeClassName='active' to='/login'>
+          <NavLink className='active' to='/login'>
             Login
           </NavLink>
-          <NavLink exact activeClassName='active' to='/premium-content'>
+          <NavLink className='active' to='/premium-content'>
             Premium Content
           </NavLink>
         </div>
