@@ -22,6 +22,7 @@ export default function Register() {
       setMessage('All fields are required');
       return;
     }
+    setMessage(null);
     const requestConfig = {
       headers: {
         'Content-Type': 'application/json',
